@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from "react-router-dom";
 
-function Header() {
+function Footer() {
 	
 	let history = useHistory();
 
@@ -13,9 +13,9 @@ function Header() {
 
 	return (
 		<div className="header">
-			<a onClick={handleOnClick}>BULLY AT THE POLLS</a>
+			<a onClick={handleOnClick}>Footer</a>
 		</div>
 	);
 }
 
-export default Header;
+export default Footer;

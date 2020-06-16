@@ -1,27 +1,26 @@
 import React, { useEffect } from 'react';
-import ElectionStore from './Elections-Store';
+import BullyStore from '../shared/bullystore'
 import ElectionDetails from './Election-Details'
 
-function Elections() {
+const Elections = () => {
 	// eslint-disable-next-line	
-	const { elections,isLoading } = ElectionStore.useStoreState(state => ({
+	const { elections,electionIsLoading } = BullyStore.useStoreState(state => ({
 		elections:state.elections,
-		isLoading:state.isLoading
+		electionIsLoading:state.electionIsLoading
 	}));
 	
-	const getElections   = ElectionStore.useStoreActions(actions => actions.getElections)
-	
+	const getElections   = BullyStore.useStoreActions(actions => actions.getElections)
+	//The Effect Hook lets you perform side effects in function components:
+	//https://reactjs.org/docs/hooks-effect.html
 	useEffect(() => {
 		getElections();
 	// eslint-disable-next-line	
 	}, []);
 
 	
-	console.log(elections.elections)
-	
 	return(
 		<>
-		{isLoading ? (
+		{electionIsLoading ? (
         <div>
 			Testing
         </div>
@@ -34,5 +33,5 @@ function Elections() {
 )}
 		</>
 	)
-}
+};
 export default Elections;
