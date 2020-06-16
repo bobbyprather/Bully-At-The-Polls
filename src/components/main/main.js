@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import Elections from '../elections/Elections';
 import Voters from '../voters/Voters';
 function Main() {
+
 	const [ showElection, setShowElection ] = useState(false);
 	const [ showVoter, setShowVoter ] = useState(false);
     const [ address, setAddress ] = useState('');
     
+
 
     
 	const isValidAddress = (address) => {
